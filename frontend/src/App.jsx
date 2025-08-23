@@ -1,7 +1,9 @@
+import MapView from "./MapView";
+
 function App() {
   return (
     <div>
-      <h1>Hello GIS collab</h1>
+      <MapView />
     </div>
   );
 }
