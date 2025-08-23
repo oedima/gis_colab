@@ -23,7 +23,6 @@ frontend/.eslintcache
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
-frontend/package-lock.json
 frontend/pnpm-lock.yaml
 frontend/yarn.lock
 
