@@ -1,80 +1,45 @@
-# -----------------------------
-# General
-# -----------------------------
+# -------------------------
+# Node / React / Vite
+# -------------------------
+node_modules/
+dist/
+build/
+*.local
+.vite/
+.vite-cache/
+vite.config.ts.timestamp*
+vite.config.js.timestamp*
+
+# npm / yarn / pnpm lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# -------------------------
+# Docker
+# -------------------------
+/pgdata
+*.pid
+*.log
+*.sock
+docker-compose.override.yml
+
+# -------------------------
+# VS Code / IDEs
+# -------------------------
+.vscode/
+.vscode-test/
+*.code-workspace
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# -------------------------
+# OS / Misc
+# -------------------------
 .DS_Store
 Thumbs.db
-*.log
-*.env
-*.env.local
-.env.*
-!.env.example
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# -----------------------------
-# Node / React / Vite (frontend)
-# -----------------------------
-frontend/node_modules/
-frontend/dist/
-frontend/.vite/
-frontend/.eslintcache
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
-frontend/pnpm-lock.yaml
-frontend/yarn.lock
-
-# Coverage / test
-frontend/coverage/
-frontend/.nyc_output/
-
-# -----------------------------
-# Python (backend)
-# -----------------------------
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.so
-*.egg
-*.egg-info/
-.eggs/
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-.installed.cfg
-pip-wheel-metadata/
-share/python-wheels/
-*.manifest
-*.spec
-
-# Virtual environments
-venv/
-env/
-ENV/
-.venv/
-.python-version
-
-# Pytest / coverage
-.coverage
-.coverage.*
-.cache
-.pytest_cache/
-htmlcov/
-
-# Jupyter / IPython
-.ipynb_checkpoints
-profile_default/
-ipython_config.py
-
-# -----------------------------
-# OS / Misc
-# -----------------------------
-*.bak
-*.tmp
-*.temp
-*.orig
