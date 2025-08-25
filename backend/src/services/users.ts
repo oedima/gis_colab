@@ -1,10 +1,10 @@
 import { supabase } from '../config.js'
 
-export async function createUser(email: string, hashedPassword: string) {
-  const { data, error } = await supabase.rpc('create_user', {
-    p_email: email,
-    p_hashed_password: hashedPassword
-  })
+export async function createUser(email: string, hashedPassword: string) {  
+  const { data, error } = await supabase
+    .from('users')
+    .insert([{ email, hashed_password: hashedPassword }])
+    .select()
 
   if (error) throw error
   return data?.[0]

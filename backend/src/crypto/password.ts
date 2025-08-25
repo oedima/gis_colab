@@ -5,7 +5,7 @@ export async function hashPassword(plain: string): Promise<string> {
   return argon2.hash(plain, {
     type: argon2.argon2id,
     memoryCost: 2 ** 16, // 64 MiB
-    timeCost: 3,         // iterations
+    timeCost: 1,         // iterations
     parallelism: 1
   })
 }
