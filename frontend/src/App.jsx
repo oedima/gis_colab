@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./main.css";
 
-const API_URL = "http://localhost:8000"; // FastAPI backend
+const API_URL = "http://localhost:3000"; 
 
 export default function App() {
   const [token, setToken] = useState(null);
@@ -17,8 +17,9 @@ export default function App() {
 
   async function handleAuth(endpoint) {
     try {
-      const res = await axios.post(`${API_URL}/${endpoint}`, { email, password });
-      setToken(res.data.access_token);
+      const path = `${API_URL}/${endpoint}`
+      const res = await axios.post(path, { email, password });
+      setToken(res.data.token);
     } catch (err) {
       alert("Error: " + (err.response?.data?.detail || err.message));
     }
@@ -85,8 +86,8 @@ export default function App() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           /><br />
-          <button onClick={() => handleAuth("login")}>Login</button>
-          <button onClick={() => handleAuth("signup")}>Signup</button>
+          <button onClick={() => handleAuth("auth/signin")}>Login</button>
+          <button onClick={() => handleAuth("auth/signup")}>Signup</button>
         </div>
       </div>
     );

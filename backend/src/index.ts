@@ -1,10 +1,21 @@
+import 'dotenv/config'
+import cors from "cors";
 import express from 'express'
 import { PORT } from './config.js'
 import authRouter from './routes/auth.js'
 
+
+const allowedOrigins = process.env.ALLOWED_ORIGINS!.split(",");
+
 const app = express()
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 app.use(express.json())
 app.use('/auth', authRouter)
+
 
 // listen on all interfaces
 app.listen(PORT, '0.0.0.0', () => {
