@@ -1,6 +1,6 @@
 import { supabase } from '../config.js'
 
-export async function createUser(email: string, hashedPassword: string) {  
+export async function createUser(email: string, hashedPassword: string) {
   const { data, error } = await supabase
     .from('users')
     .insert([{ email, hashed_password: hashedPassword }])
@@ -8,6 +8,17 @@ export async function createUser(email: string, hashedPassword: string) {
 
   if (error) throw error
   return data?.[0]
+}
+
+export async function isUserRegistered(email: string) : Promise<boolean> {
+  const { data, error } = await supabase
+  .from("users")
+  .select("id")   
+  .eq("email", email)
+  .maybeSingle(); 
+
+  if (error) throw error
+  return !!data
 }
 
 export async function getHashedPassword(email: string): Promise<string | null> {
