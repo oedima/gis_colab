@@ -1,3 +1,4 @@
+import "./main.css"
 import { useState } from "react";
 import { signin, signup } from "./api/auth";
 import AuthForm from "./components/AuthForm";
